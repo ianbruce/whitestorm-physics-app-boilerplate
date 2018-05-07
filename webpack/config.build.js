@@ -4,11 +4,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const webpackConfig = require('./config')
 
 module.exports = merge(webpackConfig, {
-  devtool: 'source-map',
-
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: '[name].[chunkhash].js'
+    filename: '[name].js'
   },
 
   plugins: [
