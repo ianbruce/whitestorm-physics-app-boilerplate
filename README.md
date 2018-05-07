@@ -39,6 +39,11 @@ $ yarn build
 If you're not familiar with webpack, the [webpack-dev-server](https://webpack.js.org/configuration/dev-server/) will serve the static files in your build folder and watch your source files for changes.
 When changes are made the bundle will be recompiled. This modified bundle is served from memory at the relative path specified in publicPath.
 
-## Credits
+## Demo
 
-Inspired by https://github.com/rafaeldelboni/phaser3-es6-webpack4
+https://septaris.github.io/whitestorm-physics-app-boilerplate/
+
+## References and acknowledgments
+
+- Inspired by https://github.com/rafaeldelboni/phaser3-es6-webpack4
+- Deploying a subfolder to GitHub Pages: https://gist.github.com/cobyism/4730490
