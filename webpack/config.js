@@ -6,8 +6,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const IS_DEV = (process.env.NODE_ENV === 'dev')
 
 const dirNode = path.join(__dirname, '../node_modules')
-const dirApp = path.join(__dirname, '../app')
-const dirAssets = path.join(__dirname, '../assets')
+const dirSrc = path.join(__dirname, '../src')
+const dirApp = path.join(dirSrc, 'app')
+const dirAssets = path.join(dirSrc, 'assets')
 
 
 /**
@@ -15,15 +16,19 @@ const dirAssets = path.join(__dirname, '../assets')
  */
 module.exports = {
   entry: {
-    bundle: path.join(dirApp, 'index.js')//,
-    //vendor: ['phaser']
+    bundle: path.join(dirApp, 'index.js')
   },
   resolve: {
     modules: [
       dirNode,
-      dirApp,
-      dirAssets
-    ]
+      dirSrc,
+    ],
+    alias: {
+      // absolute imports
+      '/app': path.resolve(dirSrc, 'app/'),
+      '/styles': path.resolve(dirSrc, 'assets/styles/'),
+      '/images': path.resolve(dirSrc, 'assets/images/')
+    }
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -32,7 +37,7 @@ module.exports = {
       'WEBGL_RENDERER': JSON.stringify(true)
     }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, '../index-template.html'),
+      template: path.join(dirSrc, 'index-template.html'),
     })
   ],
   module: {
