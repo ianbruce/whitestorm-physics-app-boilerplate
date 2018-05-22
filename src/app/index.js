@@ -14,49 +14,35 @@ const colors = {
   softbody: 0x434B7F
 }
 
-// create a sphere to test the physic
-const sphere = new WHS.Sphere({ // Create sphere comonent.
-  geometry: {
-    radius: 3,
-    widthSegments: 32,
-    heightSegments: 32
-  },
-
-  modules: [
-    new PHYSICS.SphereModule({
-      mass: 10 // Mass of physics object.
-    })
-  ],
-
-  material: new THREE.MeshLambertMaterial({
-    color: colors.mesh
-  }),
-
-  position: [0, 100, 0]
-})
-
 // create a box
-const box = new WHS.Box({ // Create sphere comonent.
-  geometry: [2, 2, 2],
+const addBox = () => {
+  const box = new WHS.Box({ // Create sphere comonent.
+    geometry: [2, 2, 2],
 
-  modules: [
-    new PHYSICS.BoxModule({
-      mass: 10 // Mass of physics object.
-    })
-  ],
+    modules: [
+      new PHYSICS.BoxModule({
+        mass: 10 // Mass of physics object.
+      })
+    ],
 
-  material: new THREE.MeshLambertMaterial({
-    color: colors.mesh
-  }),
+    material: new THREE.MeshLambertMaterial({
+      color: colors.mesh
+    }),
 
-  position: [2, -3, 2]
-})
+    position: [10, 10, 20]
+  })
 
-// link the box to the sphere
-box.addTo(sphere)
+  box.addTo(scene.app)
 
-// add the sphere to the WHS application
-sphere.addTo(scene.app)
+  return box
+}
+
+setInterval(() => {
+  for (let i = 0; i < 20; i++) {
+    const box = addBox()
+    setTimeout(() => scene.app.remove(box), 5000)
+  }
+}, 1000)
 
 // add a ground (plane)
 scene.addPlane()
