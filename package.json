@@ -2,12 +2,13 @@
   "name": "whitestorm-physics-app-boilerplate",
   "version": "1.0.0",
   "description": "WhitestormJS + Physics (AmmoNext) Webpack4 Boilerplate",
-  "author": "Sonny Lion",
+  "author": "Ian Bruce",
   "license": "MIT",
   "homepage": "https://github.com/Septaris/whitestorm-physics-app-boilerplate.git",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev webpack-dev-server --progress --mode development --config webpack/config.dev.js",
-    "build": "webpack --progress --mode production --config webpack/config.build.js"
+    "build": "webpack --progress --mode production --config webpack/config.build.js",
+    "deploy": "npm run build&&gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "expose-loader": "^0.7.5",
     "file-loader": "^1.1.11",
+    "gh-pages": "^1.1.0",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.8.3",
     "raw-loader": "^0.5.1",
