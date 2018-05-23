@@ -27,7 +27,7 @@ export class Scene {
         }
       },
       physics: {
-        gravity: new THREE.Vector3(0, -10, 0),
+        gravity: new THREE.Vector3(0, -100, 0),
         ammo: 'https://rawgit.com/WhitestormJS/physics-module-ammonext/master/vendor/ammo.js'
       }
     }

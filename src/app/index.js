@@ -40,9 +40,9 @@ const addBox = () => {
 setInterval(() => {
   for (let i = 0; i < 20; i++) {
     const box = addBox()
-    setTimeout(() => scene.app.remove(box), 5000)
+    setTimeout(() => scene.app.remove(box), 100)
   }
-}, 1000)
+}, 200)
 
 // add a ground (plane)
 scene.addPlane()
