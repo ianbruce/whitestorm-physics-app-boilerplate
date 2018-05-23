@@ -38,14 +38,12 @@ const addBox = () => {
 }
 
 setInterval(() => {
-  for (let i = 0; i < 20; i++) {
     const box = addBox()
-    setTimeout(() => scene.app.remove(box), 100)
-  }
-}, 200)
+    setTimeout(() => scene.app.remove(box), 3000)
+}, 1000)
 
 // add a ground (plane)
-scene.addPlane()
+scene.addBoxPlane()
 
 // add lights
 scene.addBasicLights()
